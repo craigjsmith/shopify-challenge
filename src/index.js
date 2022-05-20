@@ -16,14 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
 function sendQuery(userInput, callback) {
   const data = {
     prompt: userInput,
-    temperature: 0.5,
+    temperature: 0.8,
     max_tokens: 32,
     top_p: 1.0,
     frequency_penalty: 0.0,
     presence_penalty: 0.0,
   };
 
-  fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+  fetch("https://api.openai.com/v1/engines/text-ada-001/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
