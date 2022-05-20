@@ -5,9 +5,7 @@ import "./index.css";
 const { useState, useEffect } = React;
 
 document.addEventListener("DOMContentLoaded", function () {
-  var input = document.querySelector("#userInput");
-
-  input.addEventListener("keypress", function (event) {
+  document.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
       event.preventDefault();
       document.querySelector(".submitBtn").click();
@@ -81,7 +79,6 @@ function App() {
           id="userInput"
           onClick={(e) => {
             e.preventDefault();
-            document.querySelector("#userInput").value = "";
           }}
         ></input>
         <button
@@ -90,6 +87,7 @@ function App() {
           onClick={(e) => {
             e.preventDefault();
             var userInput = document.querySelector("#userInput").value;
+            document.querySelector("#userInput").value = "";
             addTextBubble((TextBubbles) => [
               ...TextBubbles,
               new Message(userInput, "blue"),
@@ -113,6 +111,10 @@ function App() {
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    ></meta>
     <App />
   </>
 );
