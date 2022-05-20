@@ -29,7 +29,7 @@ function sendQuery(userInput, callback) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer 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`,
+      Authorization: `Bearer ${process.env.secret}`,
     },
     body: JSON.stringify(data),
   })
@@ -61,7 +61,6 @@ function App() {
 
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight);
-    console.log("now");
   });
 
   return (
@@ -88,7 +87,6 @@ function App() {
         <button
           className="submitBtn"
           type="submit"
-          tabindex="-1"
           onClick={(e) => {
             e.preventDefault();
             var userInput = document.querySelector("#userInput").value;
